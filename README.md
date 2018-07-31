@@ -5,9 +5,11 @@ Se utilizó Django Rest Framework y se requiere que el proyecto este dentro de u
 
 Ejecutar los comandos: 
 
-python manage.py migrate --run-syncdb
-python manage.py migrate
-python manage.py runserver
+> python manage.py migrate --run-syncdb
+
+> python manage.py migrate
+
+> python manage.py runserver
 
 
 End points:
