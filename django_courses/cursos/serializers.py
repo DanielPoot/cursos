@@ -14,3 +14,23 @@ class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Course
         fields = ('name', 'lessons')
+
+class LessonSerializer(serializers.HyperlinkedModelSerializer):
+    questions = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Lesson
+        fields = ('name', 'questions')
+
+class MultipleChoiceQuestionSerializer(serializers.HyperlinkedModelSerializer):
+    answers = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = MultipleChoiceQuestion
+        fields = ('score', 'answers')
+
+class SimpleAnswersSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = SimpleAnswer
+        fields = ('order', 'answer')
