@@ -14,9 +14,13 @@ Ejecutar los comandos:
 
 End points:
 
-localhost:8000/api/v1/students/
-localhost:8000/api/v1/courses/
-localhost:8000/api/v1/lessons/
-localhost:8000/api/v1/questions/
-localhost:8000/api/v1/answers/
+> localhost:8000/api/v1/students/
+
+> localhost:8000/api/v1/courses/
+
+> localhost:8000/api/v1/lessons/
+
+> localhost:8000/api/v1/questions/
+
+> localhost:8000/api/v1/answers/
 
