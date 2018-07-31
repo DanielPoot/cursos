@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
+from django.conf.urls import include
 from django.conf import settings
 from rest_framework.authtoken import views
 
 urlpatterns = [
-	url(r'^api/v1/', include('cursos.urls', namespace='cursos')),
+	url(r'^api/v1/', include(('cursos.urls','cursos'), namespace='cursos')),
     url(r'^admin/', admin.site.urls),
 ]
 

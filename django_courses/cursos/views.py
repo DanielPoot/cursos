@@ -1,22 +1,18 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
+from rest_framework import generics
+from .models import *
+from .serializers import *
+from django.shortcuts import get_object_or_404
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
+class StudentList(generics.ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+    def get_object(self):
+        querySet = self.get_queryset()
+        obj = get_object_or_404(
+            queryset,
+            pk=self.kwargs['pk'],
+        )
+        return obj
